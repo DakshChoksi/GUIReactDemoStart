@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import {Dropdown} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import  axios from 'axios'
 
 function App() {
 
@@ -40,24 +41,34 @@ function App() {
 
   function ConfigSubmit(e) {
     e.preventDefault()
-    console.log(selectedOption)
-    console.log(selectedOptionRobot)
-    console.log(primaryIP)
-    console.log(primaryPort)
-    console.log(includeSceneConfig)
-    console.log(secondaryIP)
-    console.log(inter)
-    console.log(sensorIP)
-    console.log(sensorPort)
-    console.log(robotIP)
-    console.log(robotPort)
-    console.log(robotStopChannels)
-    console.log(robotSlowChannels)
-    console.log(systemReactionTime)
-    console.log(robotStopTime)
-    console.log(maximumRobotSpeed)
-    console.log(detectionError)
-    console.log(robotPositionError)
+
+    let configs = {
+      selectedOption: selectedOption,
+      selectedOptionRobot,
+      primaryIP,
+      primaryPort,
+      includeSceneConfig,
+      secondaryIP,
+      interface: inter,
+      sensorIP,
+      sensorPort,
+      robotIP,
+      robotPort,
+      robotStopChannels,
+      robotSlowChannels,
+      systemReactionTime,
+      robotStopTime,
+      maximumRobotSpeed,
+      detectionError,
+      robotPositionError
+    }
+
+    axios.post("http://localhost:4000/SaveConfigs", configs)
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch(error => console.error(error))
+
   }
 
   function DeleteChannel(idx, channelType) {
@@ -109,7 +120,7 @@ function App() {
             setPrimaryIP(TempPrimaryIP)
           }}></input></h5>
         <input type='number' placeholder='Port' onChange={(e) => setPrimaryPort(e.target.value)}></input>
-        <input type='checkbox' className='Scene config' onChange={(e) => setIncludeSceneConfig(e.target.value)}></input>
+        <input type='checkbox' className='Scene config' onChange={(e) => setIncludeSceneConfig(!includeSceneConfig)}></input>
         <label className='Scene config'>Scene Configuration Only</label>
         <h4>Secondary</h4>
         <h5>IP: <input type='text' onChange={(e) => {
@@ -161,7 +172,7 @@ function App() {
               e.target.value == "undefined" ? TempSensorIP[3] = "" : TempSensorIP[3] = e.target.value
               setSensorIP(TempSensorIP)
             }}></input></h5>
-            <input type='text' placeholder='Port for Sensor' onChange={(e) => setSensorPort(e.target.value)}></input>
+            <input type='number' placeholder='Port for Sensor' onChange={(e) => setSensorPort(e.target.value)}></input>
           </div>
           :
           <></>
