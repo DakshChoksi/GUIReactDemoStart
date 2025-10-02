@@ -54,7 +54,7 @@ function App() {
         <h2>Robots</h2>
         <Dropdown onSelect={HandleSelectRobot}>
           <Dropdown.Toggle variant='success'>
-            {selectedOptionRobot ? setSelectedOptionRobot : "Select Option"}
+            {selectedOptionRobot ? selectedOptionRobot : "Select Option"}
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>Denso: VP-G 6242</Dropdown.Item>
