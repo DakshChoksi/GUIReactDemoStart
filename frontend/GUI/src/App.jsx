@@ -38,8 +38,26 @@ function App() {
     setSelectedOptionRobotBool(true)
   }
 
-  function ConfigSubmit() {
-    
+  function ConfigSubmit(e) {
+    e.preventDefault()
+    console.log(selectedOption)
+    console.log(selectedOptionRobot)
+    console.log(primaryIP)
+    console.log(primaryPort)
+    console.log(includeSceneConfig)
+    console.log(secondaryIP)
+    console.log(inter)
+    console.log(sensorIP)
+    console.log(sensorPort)
+    console.log(robotIP)
+    console.log(robotPort)
+    console.log(robotStopChannels)
+    console.log(robotSlowChannels)
+    console.log(systemReactionTime)
+    console.log(robotStopTime)
+    console.log(maximumRobotSpeed)
+    console.log(detectionError)
+    console.log(robotPositionError)
   }
 
   function DeleteChannel(idx, channelType) {
@@ -199,7 +217,7 @@ function App() {
                   <input type='text' placeholder='Slow Channel' onChange={(e) => {
                       let TempSlowCh = [...robotSlowChannels]
                       e.target.value == "undefined" ? TempSlowCh[idx] = "" : TempSlowCh[idx] = e.target.value
-                      setRobotStopChannels(TempSlowCh)
+                      setRobotSlowChannels(TempSlowCh)
                     }}></input>
                   <button onClick={() => DeleteChannel(idx, "Slow")} type='button'>Delete</button>
                 </div>
