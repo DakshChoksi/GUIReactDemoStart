@@ -1,0 +1,19 @@
+<root>
+ <PC_IPs primary="23.32.23.32" secondary="470.670.3032.2134">
+  <secondary_port_interface>54</secondary_port_interface>
+  <primary_port>0</primary_port>
+  <scene_config_only>true</scene_config_only>
+ </PC_IPs>
+ <Sensors>
+  <sensor>
+   <ip>400.6000.800.200</ip>
+   <port>0</port>
+   <sn>-1</sn>
+   <model>RealSense</model>
+  </sensor>
+ </Sensors>
+ <Robots>
+  <robot robot_model="Yaskawa: HC10" ip="20.30.40.50" port="0" safety_stop_channels="450" safety_stop_channels="890" safety_slow_channels="900"></robot>
+ </Robots>
+ <seperation_dist_config system_reaction_time="0" robot_stop_time="0" max_robot_speed="0" detection_error="0" robot_position_error="0"></seperation_dist_config>
+</root>
