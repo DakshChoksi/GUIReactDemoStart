@@ -69,17 +69,17 @@ type PCIPS struct {
 	XMLName                  xml.Name `xml:"PC_IPs"`
 	Primary                  string   `xml:"primary,attr"`
 	Secondary                string   `xml:"secondary,attr"`
-	Secondary_port_interface string   `xml:"secondary_port_interface"`
-	PrimaryPort              string   `xml:"primary_port"`
-	SceneConfigOnly          bool     `xml:"scene_config_only"`
+	Secondary_port_interface string   `xml:"secondary_port_interface,attr"`
+	PrimaryPort              string   `xml:"primary_port,attr"`
+	SceneConfigOnly          bool     `xml:"scene_config_only,attr"`
 }
 
 type Sensor struct {
 	XMLName    xml.Name `xml:"sensor"`
-	IP         string   `xml:"ip"`
-	Port       string   `xml:"port"`
-	SensorNode string   `xml:"sn"`
-	Model      string   `xml:"model"`
+	IP         string   `xml:"ip,attr"`
+	Port       string   `xml:"port,attr"`
+	SensorNode string   `xml:"sn,attr"`
+	Model      string   `xml:"model,attr"`
 }
 
 type Sensors struct {
